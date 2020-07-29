@@ -1,5 +1,5 @@
 /*
-
+Pisano period ie recurring fibo seq using mod- 01 is pattern 
 Fibonacci Number Again Problem
 Compute the n-th Fibonacci number modulo m.
 Input: Integers 0 ≤ n ≤ 1018 and
@@ -49,8 +49,8 @@ function getFibMod(n, m) {
      
        
        
-       if(arr[i]==1&&arr[i-1]==1&&arr[i-2]==0&&i>3){
-           f=n%(i-2)
+       if(arr[i]==1&&arr[i-1]==0){
+           f=n%(i-1)
            return (arr[f])
            break
        }
