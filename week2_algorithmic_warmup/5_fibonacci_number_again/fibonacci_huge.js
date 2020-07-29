@@ -56,9 +56,9 @@ function getFibMod(n, m) {
        }
        
        
-   }if(m==n||m<=2||m>n){
+   }
          return arr[n]
-     }
+     
     
 
     
