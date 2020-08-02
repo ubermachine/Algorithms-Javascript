@@ -1,4 +1,4 @@
-// by Alexander Nikolskiy
+
 
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -32,9 +32,27 @@ function readLine(line) {
 
     return [v, w];
 }
-
+ 
 function max(count, capacity, values, weights) {
-    // write your code here
+    let n= values.length
+    for(let i in values){
+      
+        values[i]=[values[i],weights[i]]
+    }values.sort((a,b)=>{
+        return (b[0]/b[1]-a[0]/a[1])
+    })
+    let sum=0
+for(let i of values){
+    if(capacity>=i[1]){
+        capacity-=i[i]
+        sum+=i[0]
+    }else{
+       
+        sum+=i[0]*(capacity/i[1])
+        break
+        
+    }
+}return sum.toFixed(4)
 }
 
 module.exports = max;
