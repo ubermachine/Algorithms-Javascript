@@ -20,41 +20,16 @@ arr.push(input)
 function minfill(arr){
     let d=arr[0],mileage=arr[1],n=arr[2];
     dset=arr[3].split(' ')//.map(a=>Number(a))
-
-    let fills=0
-    let dt=0
-    let i=0   
-    let meter=dset[i]
-    while(dt<d&&i<n){
-        let kmleft=mileage
-        while(kmleft){
-            if(Math.abs(dt-meter)+kmleft>=d){
-                console.log('ho',fills,dt,meter)
-                break
-            }
-            if(kmleft<Math.abs(dt-meter)){
-                console.log('ho over',fills,dt,meter)
-                return -1
-                break //just added for assurity
-            }else{
-                  if(kmleft>Math.abs(dt-meter)&&i<n-1){
-                      meter=dset[++i] 
-                      console.log(i,n)
-                  }
-                  
-                console.log('filleed',fills,dt,meter)
-                dt=meter
-                if(dt+mileage<=d){fills++}
-                meter=dset[++i]
-                 kmleft=0
-            }
-        }
-        
-        
-    }
-    
-    return fills
-    
+let visited=0;
+let num_refill=0, curr_refill=0, last_refill = 0;
+while(curr_refill<=n){
+     last_refill = curr_refill;
+      while( (curr_refill <= n-1) && ((dset[curr_refill + 1] - dset[last_refill]) <= d)){
+        curr_refill += 1
+    if (curr_refill == last_refill)  return -1
+    if (curr_refill <= n) num_refill += 1}
+  return num_refill
+}
 }
 
 
