@@ -42,17 +42,21 @@ function max(count, capacity, values, weights) {
         return (b[0]/b[1]-a[0]/a[1])
     })
     let sum=0
-for(let i of values){
-    if(capacity>=i[1]){
-        capacity-=i[i]
-        sum+=i[0]
-    }else{
-       
-        sum+=i[0]*(capacity/i[1])
-        break
-        
+
+let i =0
+for(let i=0;i<count;i++){
+        if(values[i][1]<=capacity){
+        capacity-=values[i][1]
+        sum+=values[i][0]
+    }else
+    { sum += (values[i][0]/values[i][1] )* capacity
+      capacity = 0
     }
-}return sum.toFixed(4)
+    
+}
+
+
+return sum.toFixed(4)
 }
 
 module.exports = max;

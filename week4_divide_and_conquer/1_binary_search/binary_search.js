@@ -1,4 +1,3 @@
-// by Alexander Nikolskiy
 
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -12,26 +11,23 @@ rl.once('line', line => {
 
     rl.once('line', line => {
         const keys = line.toString().split(' ').slice(1).map(Number);
-        const result = [];
-
         for (let key of keys) {
-            result.push(binarySearch(arr, key));
+            process.stdout.write(binarySearch(arr, key) + ' ');
         }
-
-        const res = result.join(' ');
-        const maxLength = 50000;
-
-        for (let i = 0; i < res.length; i += maxLength) {
-            process.stdout.write(res.slice(i, i + maxLength));
-        }
-
         process.stdout.write('\n');
         process.exit();
     })
 });
-
 function binarySearch(arr = [], key) {
-    // write your code here
+    function search(arr,low,high,key){
+    
+    if(low>high) return -1
+    let mid= high - Math.floor((high-low)/2)
+    if (arr[mid]==key) return mid
+    else if(key>arr[mid]) return search(arr,mid+1,high,key)
+    else return search(arr,low,mid-1,key)
+            
+    
+} return search(arr,0,arr.length-1,key)
 }
-
 module.exports = binarySearch;

@@ -1,3 +1,24 @@
+// Money Change
+// Problem Introduction
+// In this problem, you will design and implement an elementary greedy algorithm
+// used by cashiers all over the world millions of times per day.
+// Problem Description
+// Task. The goal in this problem is to find the minimum number of coins needed to change the input value
+// (an integer) into coins with denominations 1, 5, and 10.
+// Input Format. The input consists of a single integer m.
+// Constraints. 1 ≤ m ≤ 103.
+// Output Format. Output the minimum number of coins with denominations 1, 5, 10 that changes m.
+// Sample 1.
+// Input:
+// 2
+// Output:
+// 2
+// 2 = 1 + 1.
+// Sample 2.
+// Input:
+// 28
+// Output:
+// 6
 
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -15,28 +36,20 @@ function readLine(line) {
     console.log(fib(n));
     process.exit();
 }
-//18
+
 function fib(n) {
    let c=0;
-   let f=n
-   for(i=0;i<=n;i++){
-       
-       if(f>=10){
-           c++
-           f-=10
-           
+   while(n>0){
+       if(n>=10){
+           n-=10
        }
-           else if (f>=5){
-               c++
-               f-=5
-               
-           } else if (f>=1){
-               
-                   c++
-           f-=1
-               
+    else if (n>=5){
+        n-=5
+    } else if (n>=1){
+           n-=1
            }
-   }              
+        c++
+}
     return c
 }
 
