@@ -1,26 +1,34 @@
- /*
-Own input stream*/
 const readline = require('readline');
-const rl = readline.createInterface({
-    input: process.stdin,
-    terminal: false
-});
 
 process.stdin.setEncoding('utf8');
-let arr=[]
-rl.on('line', (input) => {
-    if(input!="")arr.push(input.trim())
-  
-}).on('close', () => {
-    console.log(maxfill(arr))
-    process.exit(0);
-    
+const rl = readline.createInterface({
+  input: process.stdin,
+  terminal: false
 });
-function maxfill(arr){
-    let n=arr[0]
-   let nums=arr[1].split(" ").map(a=>Number(a))
-     quicksort(nums,0,nums.length-1)
-    return nums.join(' ')
+
+rl.on('line', readLine);
+
+let n,
+  a = [];
+
+function readLine(line) {
+  if (n === undefined) {
+    n = parseInt(line);
+    return;
+  }
+  a = line.split(' ').map(x => {
+    return parseInt(x);
+  });
+  main(n, a);
+  process.exit();
+}
+function main(n,arr){
+    
+   let nums=arr.map(a=>a=parseInt(a))
+   
+   quicksort(nums,0,nums.length-1)
+   console.log(...nums)
+     
 }
 function partition(A,l,h){
     let pivot=A[h]
@@ -40,16 +48,15 @@ function partition(A,l,h){
     return i
 }
 function quicksort(A,l,h){
-    
+   
     if(l<h){
        let p= partition(A,l,h)
-       
        quicksort(A,l,p-1)
       quicksort(A,p+1,h)
     } 
     
 }
 
-module.exports=(maxfill)
+module.exports=(main)
 
  
