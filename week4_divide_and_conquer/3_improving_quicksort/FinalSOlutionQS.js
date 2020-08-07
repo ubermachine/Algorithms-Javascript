@@ -42,12 +42,13 @@ function partition(A,l,h){
     return i
 }
 function quicksort(A,l,h){
+
     
     if(l<h){
        let p= partition(A,l,h)
-       
-       quicksort(A,l,p-1)
-      quicksort(A,p+1,h)
+        left= right = partition(A, p, lo, hi)  // note: multiple return values
+        quicksort(A, lo, left - 1)
+        quicksort(A, right + 1, hi)
     } 
     
 }
