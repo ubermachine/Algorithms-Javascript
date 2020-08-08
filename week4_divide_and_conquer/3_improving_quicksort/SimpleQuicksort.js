@@ -20,8 +20,9 @@ function maxfill(arr){
     let n=arr[0]
     
     //test case arr=[...Array(400)].map(e=>~~(Math.random()*40000))
-   let nums=arr[1].split(" ").map(a=>Number(a)).sort((a,b)=>a-b)
-    
+   let nums=arr[1].split(" ").map(a=>Number(a))
+   console.log(nums)
+    quicksort(nums,0,nums.length-1)
     return nums.join(' ')
 }
 function partition(A,l,h){
@@ -46,8 +47,9 @@ function quicksort(A,l,h){
     if(l<h){
        let p= partition(A,l,h)
        
-       quicksort(A,l,p-1)
-      quicksort(A,p+1,h)
+        left= right = partition(A, l, h)  
+        quicksort(A, l, p-1)
+        quicksort(A, p+1, h)
     } 
     
 }
